@@ -1,6 +1,8 @@
 from decouple import config
 import pygame
 
+# TODO: Add comments and documentatons
+
 #
 pygame.init()
 #
@@ -62,10 +64,13 @@ def draw(win: pygame.Surface, paddles: Paddle, ball):
     for paddle in paddles:
         paddle.draw(win)
     #
+    j = 0
     for i in range(10, HEIGHT, HEIGHT//20):
-        if i % 2 == 1:
+        if j % 2 == 1:
+            j+=1
             continue
         pygame.draw.rect(win, WHITE, (WIDTH//2 - 5, i, 10, HEIGHT//20))
+        j+=1
     #
     ball.draw(win)
 
@@ -92,6 +97,44 @@ def handle_paddle_movement(keys, left_paddle, right_paddle):
     elif keys[pygame.K_DOWN] and check_paddle_boundry(right_paddle, 'down'):
         right_paddle.move(up=False)
 
+def handle_collision(ball, left_paddle, right_paddle): # TODO: Lots of repeatation, need to add more functionality
+    """"""
+    # Handling ceiling collision
+    if ball.y + ball.radius >= HEIGHT:
+        ball.y_vel *= -1
+    elif ball.y - ball.radius <= 0:
+        ball.y_vel *= -1
+    # Handeling paddle collision
+    if ball.x_vel < 0:
+        # Left paddle
+        # Check if the ball is in the paddle vertical range
+        if ball.y >= left_paddle.y and ball.y <= left_paddle.y + left_paddle.height: 
+            # Change horizental direction if the ball crashed to the paddle
+            if ball.x - ball.radius <= left_paddle.x + left_paddle.width:  
+                ball.x_vel *= -1
+
+                middle_y = left_paddle.y + left_paddle.height / 2
+                difference_in_y = ball.y - middle_y
+                # Reduction factor
+                reduction_factor = (left_paddle.height / 2) / ball.MAX_VEL
+                y_vel = difference_in_y / reduction_factor
+                ball.y_vel = y_vel
+
+    else:
+        # Right paddle
+        # Check if the ball is in the paddle vertical range
+        if ball.y >= right_paddle.y and ball.y <= right_paddle.y + right_paddle.height: # Check if the ball is in the paddle vertical range
+            if ball.x + ball.radius >= right_paddle.x: 
+                ball.x_vel *= -1
+
+                middle_y = right_paddle.y + right_paddle.height / 2
+                difference_in_y = ball.y - middle_y
+                # Reduction factor
+                reduction_factor = (right_paddle.height / 2) / ball.MAX_VEL
+                y_vel = difference_in_y / reduction_factor
+                ball.y_vel = y_vel
+
+
 def main() -> None:
     run = True
     clock = pygame.time.Clock()
@@ -116,6 +159,8 @@ def main() -> None:
         handle_paddle_movement(keys, left_paddle, right_paddle)
 
         ball.move()
+
+        handle_collision(ball, left_paddle, right_paddle)
 
     pygame.quit()
 
