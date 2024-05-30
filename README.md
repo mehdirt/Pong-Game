@@ -1,4 +1,4 @@
-# Pong Game using Python
+# Pong Game Using Python
 
 ## Description
 
