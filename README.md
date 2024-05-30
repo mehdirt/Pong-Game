@@ -1,8 +1,8 @@
-# Pong Game Using Python
+# Pong Game using Python
 
 ## Description
 
-Pong Game Using Python is a classic arcade game where two players control one paddle each and compete to reach 10 points to win the game. The game is built using Pygame, a popular Python library for game development.
+Pong Game is a classic arcade game where two players control one paddle each and compete to reach 10 points to win the game. The game is built using Pygame, a popular Python library for game development.
 
 <picture 1>
 
