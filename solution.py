@@ -13,6 +13,7 @@ FPS = int(config('FPS')) #
 WHITE = tuple(map(int, config('WHITE').split(', ')))
 BLACK = tuple(map(int, config('BLACK').split(', ')))
 SCORE_FONT = pygame.font.SysFont("comicsans", 50)
+WINNING_SCORE = int(config("WINNING_SCORE"))
 
 # Set up the game
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -179,6 +180,27 @@ def handle_scores(ball: Ball, left_paddle: Paddle, right_paddle: Paddle, left_sc
         ball.reset()
         left_paddle.reset()
         right_paddle.reset()
+    
+    won = False
+    if left_score >= WINNING_SCORE:
+        won = True
+        win_text = "Left Player Won!"
+    elif right_score >= WINNING_SCORE:
+        won = True
+        win_text = "Right Player Won!"
+    
+    if won:
+        # Show a winning text
+        text = SCORE_FONT.render(win_text, 1, WHITE)
+        WIN.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 - text.get_height() // 2))
+        pygame.display.update()
+        pygame.time.delay(5000)
+        
+        # Reset the components 
+        ball.reset()
+        left_paddle.reset()
+        right_paddle.reset()
+        left_score, right_score = 0, 0
    
 
     return left_score, right_score
