@@ -30,7 +30,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 # Contact Information
 You can reach me via the following platforms:
 
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fakeemail@example.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/fakelink)
-[![Website](https://img.shields.io/badge/Website-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://fakewebsite.com)
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@fakeusername)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mahdirafati680@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://linkedin.com/in/fakelink](https://www.linkedin.com/in/mahdi-rafati-97420a197/))
+[![Website](https://img.shields.io/badge/Website-4285F4?style=for-the-badge&logo=google&logoColor=white)]([https://fakewebsite.com](https://www.hopp.bio/mehdirt))
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)]([https://medium.com/@fakeusername](https://medium.com/@mehdirt))
